@@ -7,7 +7,7 @@ import random
 # loading model
 
 # loading scaler
-scale_X = np.load('model/scale.npy')
+scale_X = np.load('src/model/scale.npy')
 means = scale_X[0]
 vars = scale_X[1]
 stds = vars ** 0.5
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     val = np.array(val)
     val = (val - means)/stds
 
-    model = pickle.load(open('model/model.sav', 'rb'))
+    model = pickle.load(open('src/model/model.sav', 'rb'))
     ans = model.predict(np.expand_dims(val, axis=0))[0]
 
     if ans == "HIGH":
